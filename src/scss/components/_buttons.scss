@@ -1,0 +1,15 @@
+@use './../common' as *;
+
+.button--fill {
+  @include reset-button;
+  @include px(em(12));
+  @include py(em(6));
+  @include font(size rem(14));
+  border-radius: rem(4);
+
+  @include mq(lg) {
+    @include px(em(16));
+    @include py(em(8));
+    @include font(size rem(16));
+  }
+}
