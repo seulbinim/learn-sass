@@ -1,0 +1,24 @@
+@use './../common' as *;
+@use './../components/forms' as *;
+
+// 헤더
+.header {
+  @include flex-container(row items-center);
+  @include px(em(25));
+  @include py(em(20));
+  @include gap(16);
+  @include container-width(min, em(300));
+
+  @include mq(2xl) {
+    @include py(em(40));
+    @include px(0);
+    @include gap(24);
+    @include mx(auto);
+    @include container-width(max, em(1440));
+  }
+}
+
+.logo {
+  display: block;
+  width: 200px;
+}

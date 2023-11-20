@@ -1,0 +1,10 @@
+@use './../common' as *;
+
+// 아이콘 공통
+.icon {
+  @include size(em(10), em(10));
+
+  @include mq(lg) {
+    @include size(em(15), em(15));
+  }
+}

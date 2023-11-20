@@ -1,0 +1,11 @@
+@use './../common' as *;
+@use './header';
+@use './footer';
+
+body {
+  $bg: $black;
+  $fg: $white;
+
+  color: $fg;
+  background-color: $bg;
+}
