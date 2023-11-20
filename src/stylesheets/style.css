@@ -524,32 +524,61 @@ body {
   background-color: #010101;
 }
 
-.membership-form__area {
+.promotion__title {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: circle(0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+.promotion__description {
+  line-height: 1.5;
+}
+.promotion__description--large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 700;
+  font-size: 2.125rem;
+  line-height: 1.25;
+}
+@media (min-width: 1280px) {
+  .promotion__description--large {
+    font-size: 3.75rem;
+  }
+}
+
+embership-form__area {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
 }
 @media (min-width: 1280px) {
-  .membership-form__area {
+  embership-form__area {
     display: flex;
     flex-direction: row;
     gap: 0;
   }
 }
-.membership-form .form-input__input {
+embership-form .form-input__input {
   border-radius: 1.25rem;
 }
 @media (min-width: 1280px) {
-  .membership-form .form-input__input {
+  embership-form .form-input__input {
     border-radius: 0;
   }
 }
-.membership-form .button-membership {
+embership-form .button-membership {
   border-radius: 1.25rem;
 }
 @media (min-width: 1280px) {
-  .membership-form .button-membership {
+  embership-form .button-membership {
     border-radius: 0;
   }
 }

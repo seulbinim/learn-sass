@@ -1,7 +1,27 @@
 @use './../common' as *;
 @use './../components' as *;
 
-.membership-form {
+.promotion {
+  &__title {
+    @include sr-only;
+  }
+
+  &__description {
+    line-height: 1.5;
+
+    &--large {
+      @include flex-container(column items-center);
+      @include font(size rem(34) weight 700 lh 1.25);
+      // font-size: clamp(rem(24), calc(1rem + 3vw), rem(48));
+
+      @include mq(2xl) {
+        @include font(size rem(60));
+      }
+    }
+  }
+}
+
+embership-form {
   &__area {
     @include flex-container(column items-center);
     @include gap(rem(12));
