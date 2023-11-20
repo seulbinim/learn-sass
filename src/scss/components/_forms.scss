@@ -38,5 +38,15 @@
     background: none;
     color: $select-color;
     border: 0;
+    @include font(size rem(12));
+    @include size(100%);
+    @include py(em(6));
+    @include px(em(24));
+
+    @include mq(lg) {
+      @include font(size rem(16));
+      @include py(em(8));
+      @include px(em(32));
+    }
   }
 }

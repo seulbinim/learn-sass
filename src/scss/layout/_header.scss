@@ -1,5 +1,5 @@
 @use './../common' as *;
-@use './../components/forms' as *;
+@use './../components' as *;
 
 // 헤더
 .header {
@@ -15,6 +15,10 @@
     @include gap(24);
     @include mx(auto);
     @include container-width(max, em(1440));
+  }
+
+  &__title {
+    margin-right: auto;
   }
 
   @at-root .logo {

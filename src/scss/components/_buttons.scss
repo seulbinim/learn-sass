@@ -1,6 +1,6 @@
 @use './../common' as *;
 
-.button--fill {
+%button {
   @include reset-button;
   @include px(em(12));
   @include py(em(6));
@@ -11,5 +11,18 @@
     @include px(em(16));
     @include py(em(8));
     @include font(size rem(16));
+  }
+}
+
+.button {
+  &--fill {
+    @extend %button;
+
+    $fg: $white;
+    $bg: $red500;
+
+    border: 0;
+    color: $fg;
+    background: $bg;
   }
 }
