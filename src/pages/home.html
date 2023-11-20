@@ -83,7 +83,51 @@
 
       <a class="link-login button--fill" href="/">로그인</a>
     </header>
-    <main class="main">메인콘텐츠</main>
+    <main class="main">
+      <section class="promotion">
+        <h2 class="promotion__title">프로모션</h2>
+        <div class="promotion__area">
+          <p class="promotion__description--large">
+            <span>영화, TV 프로그램을</span>
+            <em>무제한으로.</em>
+          </p>
+          <p class="promotion__description--medium">
+            <em class="block not-italic lg:inline"
+              >다양한 디바이스에서 시청하세요.</em
+            >
+            <span>언제든 해지하실 수 있습니다.</span>
+          </p>
+          <p class="promotion__description--small">
+            <span>시청할 준비가 되셨나요? 멤버십을 등록하거나</span>
+            <span>재시작하려면 이메일 주소를 입력하세요.</span>
+          </p>
+          <form class="membership-form" action="/">
+            <div class="membership-form__area">
+              <div class="form-input">
+                <input
+                  class="form-input__input"
+                  type="email"
+                  id="membershipEmail"
+                  placeholder="likelion@euid.dev"
+                />
+                <label class="form-input__label" for="membershipEmail"
+                  >이메일 주소</label
+                >
+              </div>
+              <button class="button--fill button-membership" type="submit">
+                <span>30일 무료 이용</span>
+                <svg class="icon icon--arrow">
+                  <use href="/assets/images/svg/sprites.svg#arrow" />
+                </svg>
+              </button>
+            </div>
+          </form>
+          <p class="promotion__description--xsmall">
+            신규 회원만 이 프로모션을 이용하실 수 있습니다.
+          </p>
+        </div>
+      </section>
+    </main>
     <div class="footer-wrapper">
       <footer class="footer">
         <p class="footer__description">

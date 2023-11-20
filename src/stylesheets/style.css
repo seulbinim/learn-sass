@@ -379,8 +379,6 @@ summary {
   .header {
     padding-top: 2.5em;
     padding-bottom: 2.5em;
-    padding-right: 0;
-    padding-left: 0;
     gap: 24px;
     margin-right: auto;
     margin-left: auto;
@@ -400,6 +398,10 @@ summary {
   }
 }
 
+.footer-wrapper {
+  border-top: 1px solid #2f2f2f;
+}
+
 .footer {
   color: #acacac;
   font-size: 0.875rem;
@@ -416,8 +418,8 @@ summary {
 }
 @media (min-width: 1280px) {
   .footer {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 20px;
+    padding-left: 20px;
     padding-top: 3.125em;
     padding-bottom: 3.125em;
     margin-right: auto;

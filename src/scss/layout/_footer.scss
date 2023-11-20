@@ -2,6 +2,12 @@
 @use './../components' as *;
 
 // 푸터
+.footer-wrapper {
+  $border-color: $gray800;
+
+  border-top: 1px solid $border-color;
+}
+
 .footer {
   $footer-color: $gray300;
   $description-color: $gray200;
@@ -16,7 +22,7 @@
   @include py(em(40));
 
   @include mq(2xl) {
-    @include px(0);
+    @include px(20);
     @include py(em(50));
     @include auto-margin;
     @include container-width(max, em(1440));

@@ -11,7 +11,6 @@
 
   @include mq(2xl) {
     @include py(em(40));
-    @include px(0);
     @include gap(24);
     @include mx(auto);
     @include container-width(max, em(1440));
