@@ -6,6 +6,12 @@
     @include sr-only;
   }
 
+  &__area {
+    @include flex-container(column items-center);
+    @include gap(rem(24));
+    @include py(em(50));
+  }
+
   &__description {
     line-height: 1.5;
 
@@ -18,33 +24,73 @@
         @include font(size rem(60));
       }
     }
+
+    &--medium {
+      @include font(size rem(18));
+      @include flex-container(column items-center);
+
+      @include mq(2xl) {
+        @include font(size rem(20));
+        flex-direction: row;
+      }
+    }
+
+    &--small {
+      text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.55);
+      @include font(size rem(14));
+      @include flex-container(column items-center);
+      // width: 20em;
+
+      @include mq(2xl) {
+        @include font(size rem(16));
+      }
+    }
+
+    &--xsmall {
+      @include font(size rem(12));
+
+      @include mq(2xl) {
+        @include font(size rem(16));
+      }
+    }
   }
 }
 
-embership-form {
+.membership-form {
   &__area {
     @include flex-container(column items-center);
     @include gap(rem(12));
+    // height: 80px;
 
     @include mq(2xl) {
       @include flex-container(row stretch);
       @include gap(0);
+      // height: 60px;
     }
   }
 
   .form-input__input {
     @include rounded(rem(20));
+    @include size(245px, rem(40));
 
     @include mq(2xl) {
       @include rounded(0);
+      @include size(540px, rem(60));
     }
   }
 
   .button-membership {
     @include rounded(rem(20));
+    @include size(70%, rem(40));
+    height: 40px;
+    @include flex-container(row items-center);
+    @include gap(rem(10px));
+    @include px(em(40));
+    white-space: nowrap;
 
     @include mq(2xl) {
       @include rounded(0);
+      height: 60px;
     }
   }
 }
