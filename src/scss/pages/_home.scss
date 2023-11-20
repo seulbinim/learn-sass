@@ -1,0 +1,30 @@
+@use './../common' as *;
+@use './../components' as *;
+
+.membership-form {
+  &__area {
+    @include flex-container(column items-center);
+    @include gap(rem(12));
+
+    @include mq(2xl) {
+      @include flex-container(row stretch);
+      @include gap(0);
+    }
+  }
+
+  .form-input__input {
+    @include rounded(rem(20));
+
+    @include mq(2xl) {
+      @include rounded(0);
+    }
+  }
+
+  .button-membership {
+    @include rounded(rem(20));
+
+    @include mq(2xl) {
+      @include rounded(0);
+    }
+  }
+}

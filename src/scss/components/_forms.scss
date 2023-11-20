@@ -58,12 +58,15 @@
 
   @include relative();
 
+  input:not(:placeholder-shown) + &__label {
+    top: -12px;
+  }
+
   &__input {
     border: 0;
     padding: 0;
     @include size(100%);
     height: rem(40);
-    @include rounded(rem(20));
     letter-spacing: -0.008px;
     @include font(size rem(14) lh 1.5);
     @include py(em(10));
@@ -71,12 +74,12 @@
 
     @include mq(2xl) {
       height: rem(60);
-      @include rounded(0);
       @include py(em(18));
       @include font(size rem(16));
     }
   }
 
   &__label {
+    @include sr-only;
   }
 }

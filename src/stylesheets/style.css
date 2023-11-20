@@ -367,12 +367,14 @@ summary {
 .form-input {
   position: relative;
 }
+input:not(:placeholder-shown) + .form-input__label {
+  top: -12px;
+}
 .form-input__input {
   border: 0;
   padding: 0;
   width: 100%;
   height: 2.5rem;
-  border-radius: 1.25rem;
   letter-spacing: -0.008px;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -384,12 +386,24 @@ summary {
 @media (min-width: 1280px) {
   .form-input__input {
     height: 3.75rem;
-    border-radius: 0;
     padding-top: 1.125em;
     padding-bottom: 1.125em;
     font-size: 1rem;
   }
 }
+.form-input__label {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: circle(0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -508,6 +522,36 @@ summary {
 body {
   color: #fefefe;
   background-color: #010101;
+}
+
+.membership-form__area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+@media (min-width: 1280px) {
+  .membership-form__area {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+  }
+}
+.membership-form .form-input__input {
+  border-radius: 1.25rem;
+}
+@media (min-width: 1280px) {
+  .membership-form .form-input__input {
+    border-radius: 0;
+  }
+}
+.membership-form .button-membership {
+  border-radius: 1.25rem;
+}
+@media (min-width: 1280px) {
+  .membership-form .button-membership {
+    border-radius: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
