@@ -1,3 +1,75 @@
+@use './../common' as *;
+@use './../components' as *;
+
 // 푸터
 .footer {
+  $footer-color: $gray300;
+  $description-color: $gray200;
+  $address-color: $gray400;
+
+  color: $footer-color;
+  @include font(size rem(14) lh 1.5);
+  letter-spacing: -0.007px;
+  @include flex-container(column items-start);
+  @include gap(30px);
+  @include px(em(25));
+  @include py(em(40));
+
+  @include mq(2xl) {
+    @include px(0);
+    @include py(em(50));
+    @include auto-margin;
+    @include container-width(max, em(1440));
+  }
+
+  //질문이 있으신가요?
+  &__description {
+    @include flex-container(column);
+
+    @include mq(md) {
+      flex-direction: row;
+      @include gap(16);
+    }
+  }
+
+  //푸터 링크 목록
+  &__list {
+    @include grid-container(1, 2, 10 16);
+
+    @include mq(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include mq(2xl) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  // 저작권 및 주소
+  &__info {
+    @include flex-container(column);
+    @include gap(rem(10px));
+  }
+
+  // 저작권
+  @at-root .copyright {
+    @include show;
+    @include font(size rem(20) weight 700 lh 1.2);
+
+    @include mq(2xl) {
+      @include font(rem(22));
+    }
+  }
+
+  //주소
+  @at-root .address {
+    font-style: normal;
+    color: $address-color;
+    @include flex-container(column);
+
+    @include mq(2xl) {
+      @include font(size rem(16) weight 700);
+      letter-spacing: -0.008px;
+    }
+  }
 }
