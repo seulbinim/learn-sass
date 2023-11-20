@@ -8,3 +8,35 @@
     @include size(em(15), em(15));
   }
 }
+
+// 커스텀 셀렉트
+.select-language {
+  $select-color: $gray500;
+  $border-color: $gray300;
+
+  border: 1px solid $border-color;
+  @include relative();
+
+  .icon--global,
+  .icon--triangle {
+    @include position(absolute, t 50%);
+    pointer-events: none;
+    translate: 0 -50%;
+  }
+
+  .icon--global {
+    left: em(6);
+  }
+
+  .icon--triangle {
+    right: em(6);
+  }
+
+  &__select {
+    @include px(em(24));
+    @include appearance;
+    background: none;
+    color: $select-color;
+    border: 0;
+  }
+}

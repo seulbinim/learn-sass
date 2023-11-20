@@ -16,9 +16,14 @@
     @include mx(auto);
     @include container-width(max, em(1440));
   }
-}
 
-.logo {
-  display: block;
-  width: 200px;
+  @at-root .logo {
+    display: block;
+    // width: clamp(80px, 21.3%, 140px);
+    @include size(rem(80));
+
+    @include mq(2xl) {
+      @include size(rem(140));
+    }
+  }
 }

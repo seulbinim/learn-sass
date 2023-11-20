@@ -294,6 +294,34 @@ summary {
   }
 }
 
+.select-language {
+  border: 1px solid #acacac;
+  position: relative;
+}
+.select-language .icon--global,
+.select-language .icon--triangle {
+  position: absolute;
+  top: 50%;
+  pointer-events: none;
+  translate: 0 -50%;
+}
+.select-language .icon--global {
+  left: 0.375em;
+}
+.select-language .icon--triangle {
+  right: 0.375em;
+}
+.select-language__select {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  color: #757575;
+  border: 0;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -317,10 +345,14 @@ summary {
     max-width: 90em;
   }
 }
-
 .logo {
   display: block;
-  width: 200px;
+  width: 5rem;
+}
+@media (min-width: 1280px) {
+  .logo {
+    width: 8.75rem;
+  }
 }
 
 body {
