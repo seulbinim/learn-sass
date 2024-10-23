@@ -24,8 +24,8 @@ $tertiary-color: $silver;
 $accent-color: $red;
 
 // Box Size
-$size-sm: 31.25rem; // 500
-$size-lg: 40.625rem; // 650
+$box-size-sm: rem(500px); // 31.25
+$box-size-lg: rem(650px); // 40.625
 
 // Text Size
 $text-xs: rem(12px); // 0.75rem
