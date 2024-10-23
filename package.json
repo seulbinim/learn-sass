@@ -7,7 +7,7 @@
     "watch": "npm run sass -- --watch",
     "update": "npm run watch -- --update",
     "build": "npm run sass -- --style compressed --no-source-map",
-    "remove": "rm -rf ./src/css ./src/styles"
+    "remove": "rm -rf ./src/css"
   },
   "devDependencies": {
     "live-server": "^1.2.2",
