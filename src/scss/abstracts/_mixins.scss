@@ -55,3 +55,91 @@ $breakpoints: (
     @content;
   }
 }
+
+// Rounded 스타일 믹스인
+@mixin rounded($rounded: sm) {
+  @if $rounded == sm {
+    border-radius: 2px;
+  } @else if $rounded == md {
+    border-radius: 4px;
+  } @else if $rounded == lg {
+    border-radius: 6px;
+  } @else if $rounded == xl {
+    border-radius: 8px;
+  } @else if $rounded == full {
+    border-radius: 9999px;
+  } @else {
+    border-radius: $rounded;
+  }
+}
+
+// Font Size 믹스인
+@mixin text-size($size: base) {
+  @if $size == xs {
+    font-size: $text-xs;
+  } @else if $size == sm {
+    font-size: $text-sm;
+  } @else if $size == base {
+    font-size: $text-base;
+  } @else if $size == lg {
+    font-size: $text-lg;
+  } @else if $size == xl {
+    font-size: $text-xl;
+  } @else if $size == 2xl {
+    font-size: $text-2xl;
+  } @else if $size == 3xl {
+    font-size: $text-3xl;
+  } @else if $size == 4xl {
+    font-size: $text-4xl;
+  } @else if $size == 5xl {
+    font-size: $text-5xl;
+  } @else if $size == 6xl {
+    font-size: $text-6xl;
+  } @else if $size == 7xl {
+    font-size: $text-7xl;
+  } @else if $size == 8xl {
+    font-size: $text-8xl;
+  } @else if $size == 9xl {
+    font-size: $text-9xl;
+  } @else {
+    font-size: $size;
+  }
+}
+
+// gap 믹스인
+@mixin gap($spacing: base) {
+  @if $spacing == xs {
+    gap: $spacing-xs;
+  } @else if $spacing == sm {
+    gap: $spacing-sm;
+  } @else if $spacing == base {
+    gap: $spacing-base;
+  } @else if $spacing == lg {
+    gap: $spacing-lg;
+  } @else if $spacing == xl {
+    gap: $spacing-xl;
+  } @else if $spacing == 2xl {
+    gap: $spacing-2xl;
+  } @else if $spacing == 3xl {
+    gap: $spacing-3xl;
+  } @else if $spacing == 4xl {
+    gap: $spacing-4xl;
+  } @else if $spacing == 5xl {
+    gap: $spacing-5xl;
+  } @else if $spacing == 6xl {
+    gap: $spacing-6xl;
+  } @else if $spacing == 7xl {
+    gap: $spacing-7xl;
+  } @else if $spacing == 8xl {
+    gap: $spacing-8xl;
+  } @else if $spacing == 9xl {
+    gap: $spacing-9xl;
+  } @else {
+    gap: $spacing;
+  }
+}
+
+// Position 관련 믹스인
+@mixin relative-container() {
+  position: relative;
+}
