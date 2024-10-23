@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "sass:string";
 @use "sass:math";
+@use "./variables" as *;
 
 // 숨김 콘텐츠 믹스인
 @mixin a11y-hidden {
