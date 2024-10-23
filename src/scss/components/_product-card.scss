@@ -80,3 +80,40 @@
     gap: $gap;
   }
 }
+
+// 제품 카드 배경이미지
+.product-card {
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+$bg-images: (
+  ipad-pro: "ipad_pro",
+  ipad-air: "ipad_air",
+  iphone15-pro: "iphone15_pro",
+  iphone15: "iphone15",
+  apple-watch: "apple_watch",
+  macbook-air: "macbook_air",
+  airpods-pro: "airpods_pro",
+);
+
+@each $selector, $bg-image in $bg-images {
+  .#{$selector} {
+    background-image: image-set(url("/src/assets/apple/#{$bg-image}.jpeg") 1x, url("/src/assets/apple/#{$bg-image}_2x.jpeg") 2x);
+  }
+}
+
+$bg-wide-images: (
+  ipad-pro: "ipad_pro_wide",
+  ipad-air: "ipad_air_wide",
+  iphone15-pro: "iphone15_pro_wide",
+);
+
+@each $selector, $bg-wide-image in $bg-wide-images {
+  @include mq(lg) {
+    .#{$selector} {
+      background-image: image-set(url("/src/assets/apple/#{$bg-wide-image}.jpeg") 1x, url("/src/assets/apple/#{$bg-wide-image}_2x.jpeg") 2x);
+    }
+  }
+}
