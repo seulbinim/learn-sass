@@ -1,0 +1,15 @@
+@use "./../base";
+@use "./../abstracts" as *;
+
+.menu {
+  @include text-size(3xl);
+  @include flex-container(column);
+  @include gap(base);
+  padding: rem(48px);
+
+  @include mq(lg) {
+    @include text-size(xs);
+    @include flex-container(row justify-between);
+    padding: 0;
+  }
+}
