@@ -11,27 +11,16 @@
   color: light-dark($light-text-color, $dark-text-color);
 
   border: 1px solid currentColor;
-  // display: inline-flex;
-  // flex-flow: row nowrap;
-  // align-items: center;
-  // padding: 6px 16px;
+  @include flex-container(justify-center items-center row wrap, inline-flex);
   @include rounded();
-  display: inline-flex;
-  position: relative;
-
   font-size: $font-mobile;
   @include mq(lg) {
     font-size: $font-desktop;
   }
+  @include relative-container(svg);
 
   svg {
-    position: absolute;
-    top: 50%;
-    inset-block-start: 50%;
-    translate: 0 -50%;
-
     pointer-events: none;
-
     font-size: $font-mobile;
     @include mq(lg) {
       font-size: $font-desktop;
@@ -46,15 +35,7 @@
   }
 
   label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+    @include a11y-hidden;
   }
 
   select {
