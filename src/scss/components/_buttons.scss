@@ -1,0 +1,46 @@
+@use "./../base";
+@use "./../abstracts" as *;
+
+.button {
+  $default-color: $primary-color;
+  $dark-color: $black;
+  $light-color: $white;
+
+  border: 0;
+  background-color: transparent;
+  padding: $spacing-xl $spacing-2xl;
+  display: inline-block;
+  white-space: nowrap;
+  @include text-size(sm);
+  // 1024px 이상 버튼 글자크기
+  @include mq(lg) {
+    @include text-size(lg);
+  }
+
+  &--rounded {
+    @include rounded(full);
+  }
+
+  &--fill {
+    background-color: $default-color;
+    color: $light-color;
+
+    &.black {
+      background-color: $dark-color;
+    }
+  }
+
+  &--outline {
+    border: 1px solid currentColor;
+    color: $default-color;
+
+    &.black {
+      color: $dark-color;
+    }
+  }
+}
+
+// 버튼 컴포넌트 구분 선
+hr {
+  margin: 1rem 0;
+}
