@@ -2,6 +2,20 @@
 @use "sass:string";
 @use "sass:math";
 
+// 숨김 콘텐츠 믹스인
+@mixin a11y-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  border-width: 0;
+}
+
 @mixin inline-size($value) {
   width: $value;
   inline-size: $value;
@@ -142,4 +156,259 @@ $breakpoints: (
 // Position 관련 믹스인
 @mixin relative-container() {
   position: relative;
+}
+
+@mixin relative-container($selector) {
+  position: relative;
+
+  #{$selector} {
+    @include absolute-y-center();
+  }
+}
+
+@mixin absolute-y-center($start: 50%) {
+  position: absolute;
+  top: $start;
+  inset-block-start: $start;
+  @include translate-y-center();
+}
+
+@mixin translate($position-x: 0, $position-y: $position-x) {
+  translate: $position-x $position-y;
+}
+
+@mixin translate-x-center($position: -50%) {
+  @include translate($position, 0);
+}
+
+@mixin translate-y-center($position: -50%) {
+  @include translate(0, $position);
+}
+
+@mixin translate-center($position: -50%) {
+  @include translate($position, $position);
+}
+
+// FlexBox 믹스인
+@mixin flex-container($args, $mode: flex) {
+  display: if($mode == flex, flex, inline-flex);
+  @include flex-container-append($args);
+}
+
+@mixin flex-container-append($args) {
+  @if $args != null {
+    // flex-direction ------------------------------------------
+    @each $direction in row row-reverse column column-reverse {
+      $direction-index: index($args, $direction);
+
+      @if $direction-index {
+        flex-direction: nth($args, $direction-index);
+      }
+    }
+
+    // flex-wrap -----------------------------------------------
+    @each $wrap in nowrap wrap wrap-reverse {
+      $wrap-index: index($args, $wrap);
+
+      @if $wrap-index {
+        flex-wrap: nth($args, $wrap-index);
+      }
+    }
+
+    // justify-content ------------------------------------------
+    @each $justifyContent in justify-start justify-center justify-end justify-left justify-right justify-normal justify-between justify-around justify-evenly justify-safe justify-unsafe justify-inherit justify-initial justify-unset {
+      $justifyContent-index: index($args, $justifyContent);
+
+      @if $justifyContent-index {
+        $justifyContent-value: str-replace(nth($args, $justifyContent-index), "justify-");
+        @include justify-content($justifyContent-value, flex);
+      }
+    }
+
+    // align-items ------------------------------------------------
+    @each $alignItems in items-normal items-stretch items-start items-end items-center items-baseline items-first-baseline items-last-baseline items-safe items-unsafe items-inherit items-initial items-unset {
+      $alignItems-index: index($args, $alignItems);
+
+      @if $alignItems-index {
+        $alignItems-value: str-replace(nth($args, $alignItems-index), "items-");
+        @include align-items($alignItems-value, flex);
+      }
+    }
+
+    // align-content ------------------------------------------------
+    @each $alignContent in content-start content-center content-end content-left content-right content-normal content-baseline content-first-baseline content-last-baseline content-between content-around content-evenly content-stretch content-safe content-unsafe content-inherit content-initial content-unset {
+      $alignContent-index: index($args, $alignContent);
+
+      @if $alignContent-index {
+        $alignContent-value: str-replace(nth($args, $alignContent-index), "content-");
+        @include align-content($alignContent-value, flex);
+      }
+    }
+  }
+}
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@mixin justify-content($value, $mode: grid) {
+  @if $value == "start" {
+    justify-content: if($mode == grid, start, flex-start);
+  }
+  @if $value == "end" {
+    justify-content: if($mode == grid, end, flex-end);
+  }
+  @if $value == "center" {
+    justify-content: center;
+  }
+  @if $value == "left" {
+    justify-content: left;
+  }
+  @if $value == "right" {
+    justify-content: right;
+  }
+
+  @if $value == "normal" {
+    justify-content: normal;
+  }
+
+  @if $value == "between" {
+    justify-content: space-between;
+  }
+  @if $value == "around" {
+    justify-content: space-around;
+  }
+  @if $value == "evenly" {
+    justify-content: space-evenly;
+  }
+  @if $value == "stretch" {
+    justify-content: stretch;
+  }
+
+  @if $value == "safe" {
+    justify-content: safe center;
+  }
+  @if $value == "unsafe" {
+    justify-content: unsafe center;
+  }
+
+  @if $value == "inherit" {
+    justify-content: inherit;
+  }
+  @if $value == "initial" {
+    justify-content: initial;
+  }
+  @if $value == "unset" {
+    justify-content: unset;
+  }
+}
+@mixin align-items($value, $mode: grid) {
+  @if $value == "normal" {
+    align-items: normal;
+  }
+  @if $value == "stretch" {
+    align-items: stretch;
+  }
+
+  @if $value == "start" {
+    align-items: if($mode == grid, start, flex-start);
+  }
+  @if $value == "end" {
+    align-items: if($mode == grid, end, flex-end);
+  }
+  @if $value == "center" {
+    align-items: center;
+  }
+
+  @if $value == "baseline" {
+    align-items: baseline;
+  }
+  @if $value == "first-baseline" {
+    align-items: first baseline;
+  }
+  @if $value == "last-baseline" {
+    align-items: last baseline;
+  }
+  @if $value == "safe" {
+    align-items: safe center;
+  }
+  @if $value == "unsafe" {
+    align-items: unsafe center;
+  }
+
+  @if $value == "inherit" {
+    align-items: inherit;
+  }
+  @if $value == "initial" {
+    align-items: initial;
+  }
+  @if $value == "unset" {
+    align-items: unset;
+  }
+}
+@mixin align-content($value, $mode: grid) {
+  @if $value == "start" {
+    align-content: if($mode == grid, start, flex-start);
+  }
+  @if $value == "end" {
+    align-content: if($mode == grid, end, flex-end);
+  }
+  @if $value == "center" {
+    align-content: center;
+  }
+  @if $value == "left" {
+    align-content: left;
+  }
+  @if $value == "right" {
+    align-content: right;
+  }
+
+  @if $value == "normal" {
+    align-content: normal;
+  }
+
+  @if $value == "baseline" {
+    align-content: baseline;
+  }
+  @if $value == "first-baseline" {
+    align-content: first baseline;
+  }
+  @if $value == "last-baseline" {
+    align-content: last baseline;
+  }
+
+  @if $value == "between" {
+    align-content: space-between;
+  }
+  @if $value == "around" {
+    align-content: space-around;
+  }
+  @if $value == "evenly" {
+    align-content: space-evenly;
+  }
+  @if $value == "stretch" {
+    align-content: stretch;
+  }
+
+  @if $value == "safe" {
+    align-content: safe center;
+  }
+  @if $value == "unsafe" {
+    align-content: unsafe center;
+  }
+
+  @if $value == "inherit" {
+    align-content: inherit;
+  }
+  @if $value == "initial" {
+    align-content: initial;
+  }
+  @if $value == "unset" {
+    align-content: unset;
+  }
 }
