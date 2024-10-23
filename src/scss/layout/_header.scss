@@ -2,11 +2,10 @@
 @use "./../abstracts" as *;
 @use "./../components/logo";
 @use "./../components/buttons";
-@use "./navigation";
+@use "./../components/menu";
 
 .header-container {
   background-color: rgba($white, 1);
-  // @include position(sticky, 0);
   position: sticky;
   top: 0;
   inset-block-start: 0;
@@ -28,28 +27,12 @@
   }
 
   @include mq(lg) {
-    gap: 20px;
+    gap: $spacing-7xl;
     max-width: 1280px;
-    margin-inline: auto;
-    // @include gridbox(12);
-    // max-width: 1024px;
-    // width: 100%;
-    // @include marginX(auto);
-    // align-items: center;
-  }
-
-  .brand {
-    // padding-left: 1.5rem;
-    // background-color: green;
-  }
-
-  svg {
-    // background-color: red;
+    @include marginX(auto);
   }
 
   .menu--open {
-    font-size: 24px;
-
     @include mq(lg) {
       display: none;
     }
