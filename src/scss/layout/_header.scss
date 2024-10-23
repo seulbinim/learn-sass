@@ -2,7 +2,7 @@
 @use "./../abstracts" as *;
 @use "./../components/logo";
 @use "./../components/buttons";
-@use "./../components/menu";
+@use "./navigation";
 
 .header-container {
   background-color: rgba($white, 1);

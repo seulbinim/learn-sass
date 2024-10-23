@@ -2,16 +2,13 @@
 @use "./../components/buttons";
 
 .navigation {
-  // @include position(fixed);
   position: fixed;
   inset: 0;
-  // @include size(100%, 100vh);
   background-color: $white;
   translate: 0 -200%;
   transition: all 200ms;
 
   @include mq(lg) {
-    // @include position(static);
     position: static;
     @include size(auto, auto);
     background-color: transparent;
@@ -22,7 +19,6 @@
   }
 
   .menu--close {
-    // @include position(absolute, 1rem 1rem initial initial);
     position: absolute;
     top: 1rem;
     right: 1rem;
