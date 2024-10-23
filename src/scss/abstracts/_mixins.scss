@@ -16,6 +16,7 @@
   border-width: 0;
 }
 
+// Size 관련 믹스인
 @mixin inline-size($value) {
   width: $value;
   inline-size: $value;
@@ -154,39 +155,15 @@ $breakpoints: (
 }
 
 // Position 관련 믹스인
-@mixin relative-container() {
-  position: relative;
-}
-
-@mixin relative-container($selector) {
+@mixin relative-container($selector, $positionY: 50%, $translateY: -50%) {
   position: relative;
 
   #{$selector} {
-    @include absolute-y-center();
+    position: absolute;
+    top: $positionY;
+    inset-block-start: $positionY;
+    translate: 0 $translateY;
   }
-}
-
-@mixin absolute-y-center($start: 50%) {
-  position: absolute;
-  top: $start;
-  inset-block-start: $start;
-  @include translate-y-center();
-}
-
-@mixin translate($position-x: 0, $position-y: $position-x) {
-  translate: $position-x $position-y;
-}
-
-@mixin translate-x-center($position: -50%) {
-  @include translate($position, 0);
-}
-
-@mixin translate-y-center($position: -50%) {
-  @include translate(0, $position);
-}
-
-@mixin translate-center($position: -50%) {
-  @include translate($position, $position);
 }
 
 // FlexBox 믹스인
@@ -410,5 +387,76 @@ $breakpoints: (
   }
   @if $value == "unset" {
     align-content: unset;
+  }
+}
+
+// 여백 (padding, margin)
+@mixin padding-inline-start($value) {
+  padding-left: $value;
+  padding-inline-start: $value;
+}
+@mixin padding-inline-end($value) {
+  padding-right: $value;
+  padding-inline-end: $value;
+}
+@mixin padding-block-start($value) {
+  padding-top: $value;
+  padding-block-start: $value;
+}
+@mixin padding-block-end($value) {
+  padding-bottom: $value;
+  padding-block-end: $value;
+}
+
+@mixin paddingX($paddingX) {
+  @include padding-inline-start($paddingX);
+  @include padding-inline-end($paddingX);
+}
+@mixin paddingY($paddingY) {
+  @include padding-block-start($paddingY);
+  @include padding-block-end($paddingY);
+}
+
+@mixin padding($paddingX, $paddingY: null) {
+  @include paddingX($paddingX);
+  @if $paddingY == null {
+    @include paddingY($paddingX);
+  } @else {
+    @include paddingY($paddingY);
+  }
+}
+
+@mixin margin-inline-start($value) {
+  margin-left: $value;
+  margin-inline-start: $value;
+}
+@mixin margin-inline-end($value) {
+  margin-right: $value;
+  margin-inline-end: $value;
+}
+@mixin margin-block-start($value) {
+  margin-top: $value;
+  margin-block-start: $value;
+}
+@mixin margin-block-end($value) {
+  margin-bottom: $value;
+  margin-block-end: $value;
+}
+
+@mixin marginX($marginX) {
+  @include margin-inline-start($marginX);
+  @include margin-inline-end($marginX);
+}
+@mixin marginY($marginY) {
+  @include margin-block-start($marginY);
+  @include margin-block-end($marginY);
+}
+
+@mixin margin($marginX, $marginY: null) {
+  @include marginX($marginX);
+  @if $marginY == null {
+    @include marginY($marginX);
+  } @else {
+    @include marginY($marginY);
   }
 }
